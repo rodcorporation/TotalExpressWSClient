@@ -20,11 +20,11 @@ namespace TotalExpressWSClient.RegistrarColeta
         public int TipoServico { get; set; }
         public int TipoEntrega { get; set; }
         public decimal Peso { get; set; }
-        public int Volumes { get; set; }
+        public int Volume { get; set; }
         public string CondFrete { get; set; }
         public string Pedido { get; set; }
         public string Natureza { get; set; }
-        public string IsencaoIcms { get; set; }
+        public int IsencaoIcms { get; set; }
         public string DestNome { get; set; }
         public string DestCpfCnpj { get; set; }
         public string DestEnd { get; set; }
@@ -33,8 +33,8 @@ namespace TotalExpressWSClient.RegistrarColeta
         public string DestBairro { get; set; }
         public string DestCidade { get; set; }
         public string DestEstado { get; set; }
-        public int DestCep { get; set; }
-        public int DestTelefone1 { get; set; }
+        public string DestCep { get; set; }
+        public string DestTelefone1 { get; set; }
         public List<DocumentoFiscalNfe> DocumentosFiscaisNfe { get; set; }
 
         public Encomenda()
@@ -50,7 +50,7 @@ namespace TotalExpressWSClient.RegistrarColeta
         public DateTime NfeData { get; set; }
         public decimal NfeValTotal { get; set; }
         public decimal NfeValProd { get; set; }
-        public int NfeCfop { get; set; }
-        public string NfeChave { get; set; }
+        public string NfeCfop { get; set; }
+        public string NfeChaveAcesso { get; set; }
     }
 }

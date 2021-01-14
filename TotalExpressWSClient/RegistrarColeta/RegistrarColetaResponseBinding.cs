@@ -18,8 +18,24 @@ namespace TotalExpressWSClient.RegistrarColeta
 
             // Start Parse
 
-            response.CodRomaneio = _xmlResponse.SelectSingleNode("//CodRomaneio").InnerText;
             response.CodigoProc = Convert.ToInt32(_xmlResponse.SelectSingleNode("//CodigoProc").InnerText);
+            response.ItensProcessados = Convert.ToInt32(_xmlResponse.SelectSingleNode("//ItensProcessados").InnerText);
+            response.ItensRejeitados = Convert.ToInt32(_xmlResponse.SelectSingleNode("//ItensRejeitados").InnerText);
+
+            // Erros Individuais
+
+            var errosIndividuaisNodes = _xmlResponse.SelectNodes("//ErrosIndividuais");
+
+            foreach (XmlNode node in errosIndividuaisNodes)
+            {
+                var item = new ErrosIndividuais();
+
+                item.Pedido = node.SelectSingleNode("//Pedido").InnerText;
+                item.CodigoErro = Convert.ToInt32(node.SelectSingleNode("//CodigoErro").InnerText);
+                item.DescricaoErro = node.SelectSingleNode("//DescricaoErro").InnerText;
+
+                response.ErrosIndividuais.Add(item);
+            }
 
             // End Parse
 

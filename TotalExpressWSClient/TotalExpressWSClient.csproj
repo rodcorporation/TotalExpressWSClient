@@ -58,5 +58,8 @@
     <Compile Include="TotalExpressWSClientException.cs" />
     <Compile Include="TotalExpressWS.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="TotalExpressWSClient.nuspec" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using TotalExpressWSClient.CalculoFrete;
+﻿using TotalExpressWSClient.CalculoFrete;
 using TotalExpressWSClient.ObterTracking;
 using TotalExpressWSClient.RegistrarColeta;
 
@@ -58,12 +56,53 @@ namespace TotalExpressWSClient
 
             foreach (var encomenda in request.Encomendas)
             {
-                request.Encomendas.Where(p => p.DestNome == "");
                 builder
-                    .ComNovaEncomenda(b => b.ComTipoServico("1"));
+                    .ComNovaEncomenda(b =>
+                    {
+                        b.ComTipoServico(encomenda.TipoServico)
+                         .ComTipoEntrega(encomenda.TipoEntrega);
+
+                        if (encomenda.Peso > 0)
+                            b.ComPeso(encomenda.Peso);
+
+                        b.ComVolume(encomenda.Volume)
+                         .ComPedido(encomenda.Pedido)
+                         .ComNatureza(encomenda.Natureza)
+                         .ComIsencaoIcms(encomenda.IsencaoIcms)
+                         .ComNomeDestinatario(encomenda.DestNome)
+                         .ComCpfCnpjDestinatario(encomenda.DestCpfCnpj)
+                         .ComEnderecoDestinatario(encomenda.DestEnd)
+                         .ComNumeroEnderecoDestinatario(encomenda.DestEndNum)
+                         .ComComplementoEnderecoDestinatario(encomenda.DestCompl)
+                         .ComBairroEnderecoDestinatario(encomenda.DestBairro)
+                         .ComCidadeEnderecoDestinatario(encomenda.DestCidade)
+                         .ComUfEnderecoDestinatario(encomenda.DestEstado)
+                         .ComCepEnderecoDestinatario(encomenda.DestCep);
+
+                        if (!string.IsNullOrWhiteSpace(encomenda.DestTelefone1))
+                            b.ComTelefone1Destinatario(encomenda.DestTelefone1);
+
+                        foreach (var nfe in encomenda.DocumentosFiscaisNfe)
+                        {
+                            b.ComNotaFiscalEletronica(bNfe =>
+                            {
+                                bNfe.ComNfeNumero(nfe.NfeNumero)
+                                    .ComNfeSerie(nfe.NfeSerie)
+                                    .ComNfeData(nfe.NfeData)
+                                    .ComNfeValorTotal(nfe.NfeValProd)
+                                    .ComNfeValorProduto(nfe.NfeValTotal)
+                                    .ComNfeCfop(nfe.NfeCfop)
+                                    .ComNfeChaveAcesso(nfe.NfeChaveAcesso);
+
+                                return bNfe;
+                            });
+                        }
+
+                        return b;
+                    });
             }
 
-            var xmlRequest = builder                                
+            var xmlRequest = builder
                                 .GerarXml();
 
             var xmlResponse = MakeRequest(_username,
@@ -74,7 +113,7 @@ namespace TotalExpressWSClient
 
             return new RegistrarColetaResponseBinding(xmlResponse).GenerateObject();
         }
-        
+
         public ObterTrackingResponse ObterTracking(ObterTrackingRequest request)
         {
             var builder = new ObterTrackingRequestBuilder();
@@ -83,7 +122,7 @@ namespace TotalExpressWSClient
                                 .GerarXml();
 
             var xmlResponse = MakeRequest(_username,
-                                          _password, 
+                                          _password,
                                           _urlObterTracking,
                                           _soapActionObterTracking,
                                           xmlRequest);

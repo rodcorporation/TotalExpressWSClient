@@ -92,7 +92,7 @@ namespace TotalExpressWSClient.CalculoFrete
             if (!_comPeso)
                 throw new TotalExpressWSClientException("O peso não foi informado");
 
-            if (_valorDeclarado <= 0)
+            if (!_comValorDeclarado)
                 throw new TotalExpressWSClientException("O valor declarado não foi informado");
 
             if (!_comTipoEntrega)
