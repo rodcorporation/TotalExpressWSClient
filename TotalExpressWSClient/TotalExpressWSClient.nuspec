@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>TotalExpressWSClient</id>
-    <version>0.0.1-beta</version>
+    <version>0.0.2-beta</version>
     <authors>rodcorporation</authors>
     <owners>rodcorporation</owners>
     <license type="expression">MIT</license>
