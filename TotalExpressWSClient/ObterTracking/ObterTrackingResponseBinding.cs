@@ -1,5 +1,4 @@
-﻿using System;
-using System.Xml;
+﻿using System.Xml;
 
 namespace TotalExpressWSClient.ObterTracking
 {
@@ -14,7 +13,15 @@ namespace TotalExpressWSClient.ObterTracking
 
         internal ObterTrackingResponse GenerateObject()
         {
-            throw new NotImplementedException();
+            var response = new ObterTrackingResponse();
+
+            // Start Parse
+
+            response.CodigoProc = _xmlResponse.SelectSingleNode("//CodigoProc").InnerText;
+
+            // End Parse
+
+            return response;
         }
     }
 }
