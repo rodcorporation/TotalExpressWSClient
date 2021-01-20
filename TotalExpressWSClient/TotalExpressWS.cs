@@ -119,6 +119,7 @@ namespace TotalExpressWSClient
             var builder = new ObterTrackingRequestBuilder();
 
             var xmlRequest = builder
+                                .ComDataConsulta(request.DataConsulta)
                                 .GerarXml();
 
             var xmlResponse = MakeRequest(_username,
