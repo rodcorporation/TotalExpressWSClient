@@ -7,15 +7,15 @@ namespace TotalExpressWSClient.RegistrarColeta
     {
         public string CodRemessa { get; set; }
 
-        public List<Encomenda> Encomendas { get; set; }
+        public List<EncomendaRegistrarColetaRequest> Encomendas { get; set; }
 
         public RegistrarColetaRequest()
         {
-            Encomendas = new List<Encomenda>();
+            Encomendas = new List<EncomendaRegistrarColetaRequest>();
         }
     }
 
-    public class Encomenda
+    public class EncomendaRegistrarColetaRequest
     {
         public int TipoServico { get; set; }
         public int TipoEntrega { get; set; }
@@ -35,15 +35,15 @@ namespace TotalExpressWSClient.RegistrarColeta
         public string DestEstado { get; set; }
         public string DestCep { get; set; }
         public string DestTelefone1 { get; set; }
-        public List<DocumentoFiscalNfe> DocumentosFiscaisNfe { get; set; }
+        public List<DocumentoFiscalNfeRegistrarColetaRequest> DocumentosFiscaisNfe { get; set; }
 
-        public Encomenda()
+        public EncomendaRegistrarColetaRequest()
         {
-            DocumentosFiscaisNfe = new List<DocumentoFiscalNfe>();
+            DocumentosFiscaisNfe = new List<DocumentoFiscalNfeRegistrarColetaRequest>();
         }
     }
 
-    public class DocumentoFiscalNfe
+    public class DocumentoFiscalNfeRegistrarColetaRequest
     {
         public int NfeNumero { get; set; }
         public int NfeSerie { get; set; }
