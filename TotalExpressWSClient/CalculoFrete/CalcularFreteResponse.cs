@@ -8,6 +8,8 @@
 
         public string ErroConsultaFrete { get; set; }
 
+        public string ResponseXml { get; set; }
+
         public CalcularFreteResponse()
         {
             DadosFrete = new DadosFrete();

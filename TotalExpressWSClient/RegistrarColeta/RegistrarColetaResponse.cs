@@ -12,6 +12,8 @@ namespace TotalExpressWSClient.RegistrarColeta
 
         public List<ErrosIndividuais> ErrosIndividuais { get; set; }
 
+        public string ResponseXml { get; set; }
+
         public RegistrarColetaResponse()
         {
             ErrosIndividuais = new List<ErrosIndividuais>();

@@ -7,6 +7,8 @@ namespace TotalExpressWSClient.ObterTracking
     {
         public string CodigoProc { get; set; }
 
+        public string ResponseXml { get; set; }
+
         public IList<ArrayLoteRetornoObterTrackingResponse> ArrayLoteRetorno { get; set; }
 
         public ObterTrackingResponse()

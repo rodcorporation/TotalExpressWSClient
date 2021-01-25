@@ -21,6 +21,9 @@ namespace TotalExpressWSClient.ObterTracking
 
             // End Parse
 
+            // Adding XML Response
+            response.ResponseXml = _xmlResponse.OuterXml;
+
             return response;
         }
     }
