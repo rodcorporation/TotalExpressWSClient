@@ -5,10 +5,13 @@ namespace TotalExpressWSClient.ObterTracking
     internal class ObterTrackingResponseBinding
     {
         private XmlDocument _xmlResponse;
+        private XmlDocument _xmlRequest;
 
-        public ObterTrackingResponseBinding(XmlDocument xmlResponse)
+        public ObterTrackingResponseBinding(XmlDocument xmlRequest,
+                                            XmlDocument xmlResponse)
         {
             _xmlResponse = xmlResponse;
+            _xmlRequest = xmlRequest;
         }
 
         internal ObterTrackingResponse GenerateObject()
@@ -23,6 +26,7 @@ namespace TotalExpressWSClient.ObterTracking
 
             // Adding XML Response
             response.ResponseXml = _xmlResponse.OuterXml;
+            response.RequestXml = _xmlRequest.OuterXml;
 
             return response;
         }

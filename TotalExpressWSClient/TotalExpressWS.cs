@@ -47,7 +47,7 @@ namespace TotalExpressWSClient
                                           _soapActionCalculoFrete,
                                           xmlRequest);
 
-            return new CalcularFreteResponseBinding(xmlResponse).GenerateObject();
+            return new CalcularFreteResponseBinding(xmlRequest, xmlResponse).GenerateObject();
         }
 
         public RegistrarColetaResponse RegistrarColeta(RegistrarColetaRequest request)
@@ -111,7 +111,7 @@ namespace TotalExpressWSClient
                                           _soapActionRegistrarColeta,
                                           xmlRequest);
 
-            return new RegistrarColetaResponseBinding(xmlResponse).GenerateObject();
+            return new RegistrarColetaResponseBinding(xmlRequest, xmlResponse).GenerateObject();
         }
 
         public ObterTrackingResponse ObterTracking(ObterTrackingRequest request)
@@ -128,7 +128,7 @@ namespace TotalExpressWSClient
                                           _soapActionObterTracking,
                                           xmlRequest);
 
-            return new ObterTrackingResponseBinding(xmlResponse).GenerateObject();
+            return new ObterTrackingResponseBinding(xmlRequest, xmlResponse).GenerateObject();
         }
     }
 }

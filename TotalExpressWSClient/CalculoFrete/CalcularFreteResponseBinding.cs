@@ -6,10 +6,13 @@ namespace TotalExpressWSClient.CalculoFrete
     internal class CalcularFreteResponseBinding
     {
         private XmlDocument _xmlResponse;
+        private XmlDocument _xmlRequest;
 
-        public CalcularFreteResponseBinding(XmlDocument xmlResponse)
+        public CalcularFreteResponseBinding(XmlDocument xmlRequest,
+                                            XmlDocument xmlResponse)
         {
             _xmlResponse = xmlResponse;
+            _xmlRequest = xmlRequest;
         }
 
         internal CalcularFreteResponse GenerateObject()
@@ -33,7 +36,7 @@ namespace TotalExpressWSClient.CalculoFrete
 
             // Adding XML Response
             response.ResponseXml = _xmlResponse.OuterXml;
-
+            response.RequestXml = _xmlRequest.OuterXml;
 
             return response;
         }

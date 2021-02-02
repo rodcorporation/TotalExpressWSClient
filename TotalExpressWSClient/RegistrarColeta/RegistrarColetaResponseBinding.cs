@@ -6,10 +6,13 @@ namespace TotalExpressWSClient.RegistrarColeta
     internal class RegistrarColetaResponseBinding
     {
         private XmlDocument _xmlResponse;
+        private XmlDocument _xmlRequest;
 
-        public RegistrarColetaResponseBinding(XmlDocument xmlResponse)
+        public RegistrarColetaResponseBinding(XmlDocument xmlRequest,
+                                              XmlDocument xmlResponse)
         {
             _xmlResponse = xmlResponse;
+            _xmlRequest = xmlRequest;
         }
 
         internal RegistrarColetaResponse GenerateObject()
@@ -41,6 +44,7 @@ namespace TotalExpressWSClient.RegistrarColeta
 
             // Adding XML Response
             response.ResponseXml = _xmlResponse.OuterXml;
+            response.RequestXml = _xmlRequest.OuterXml;
 
             return response;
         }

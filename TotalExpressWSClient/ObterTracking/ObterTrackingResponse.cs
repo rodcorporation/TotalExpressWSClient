@@ -9,6 +9,8 @@ namespace TotalExpressWSClient.ObterTracking
 
         public string ResponseXml { get; set; }
 
+        public string RequestXml { get; set; }
+
         public IList<ArrayLoteRetornoObterTrackingResponse> ArrayLoteRetorno { get; set; }
 
         public ObterTrackingResponse()
