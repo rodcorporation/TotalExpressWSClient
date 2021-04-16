@@ -126,6 +126,7 @@ namespace TotalExpressWSClient.RegistrarColeta
             private string _cepEnderecoDestinatario;
             private bool _comCepEnderecoDestinatario;
 
+            private string _emailDestinatario;
             private string _telefone1Destinatario;
 
             // Notas fiscais eletrônicas;
@@ -279,6 +280,13 @@ namespace TotalExpressWSClient.RegistrarColeta
                 return this;
             }
 
+            public EncomendaRegistrarColetaRequestBuilder ComEmailDestinatario(string emailDestinatario)
+            {
+                _emailDestinatario = emailDestinatario;
+
+                return this;
+            }
+
             public EncomendaRegistrarColetaRequestBuilder ComTelefone1Destinatario(string telefone1Destinatario)
             {
                 _telefone1Destinatario = telefone1Destinatario;
@@ -369,6 +377,11 @@ namespace TotalExpressWSClient.RegistrarColeta
                 builder.AppendLine($@"<DestCidade xsi:type=""xsd:string"">{_cidadeEnderecoDestinatario}</DestCidade>");
                 builder.AppendLine($@"<DestEstado xsi:type=""xsd:string"">{_ufEnderecoDestinatario}</DestEstado>");
                 builder.AppendLine($@"<DestCep xsi:type=""xsd:nonNegativeInteger"">{_cepEnderecoDestinatario}</DestCep>");
+
+                if (!string.IsNullOrWhiteSpace(_emailDestinatario))
+                {
+                    builder.AppendLine($@"<DestEmail xsi:type=""xsd: string"">{_emailDestinatario}</DestEmail>");
+                }
 
                 if (!string.IsNullOrWhiteSpace(_telefone1Destinatario))
                 {

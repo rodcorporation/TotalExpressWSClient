@@ -34,6 +34,7 @@ namespace TotalExpressWSClient.RegistrarColeta
         public string DestCidade { get; set; }
         public string DestEstado { get; set; }
         public string DestCep { get; set; }
+        public string DestEmail { get; set; }
         public string DestTelefone1 { get; set; }
         public List<DocumentoFiscalNfeRegistrarColetaRequest> DocumentosFiscaisNfe { get; set; }
 

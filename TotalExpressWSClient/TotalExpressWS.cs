@@ -79,6 +79,9 @@ namespace TotalExpressWSClient
                          .ComUfEnderecoDestinatario(encomenda.DestEstado)
                          .ComCepEnderecoDestinatario(encomenda.DestCep);
 
+                        if (!string.IsNullOrWhiteSpace(encomenda.DestEmail))
+                            b.ComEmailDestinatario(encomenda.DestEmail);
+
                         if (!string.IsNullOrWhiteSpace(encomenda.DestTelefone1))
                             b.ComTelefone1Destinatario(encomenda.DestTelefone1);
 
