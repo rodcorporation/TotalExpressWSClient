@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotalExpressWSClient", "TotalExpressWSClient\TotalExpressWSClient.csproj", "{46D1B97A-1B3C-4C4D-A248-A8233CFCA68C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotalExpressWSClient.Console", "TotalExpressWSClient.Console\TotalExpressWSClient.Console.csproj", "{75DC6FC9-D1DB-4EB5-991A-3483FE6A4457}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{46D1B97A-1B3C-4C4D-A248-A8233CFCA68C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46D1B97A-1B3C-4C4D-A248-A8233CFCA68C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46D1B97A-1B3C-4C4D-A248-A8233CFCA68C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75DC6FC9-D1DB-4EB5-991A-3483FE6A4457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75DC6FC9-D1DB-4EB5-991A-3483FE6A4457}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75DC6FC9-D1DB-4EB5-991A-3483FE6A4457}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75DC6FC9-D1DB-4EB5-991A-3483FE6A4457}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

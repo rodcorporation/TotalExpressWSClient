@@ -48,7 +48,7 @@ namespace TotalExpressWSClient.ObterTracking
                     encomendaItem.IdCliente = encomenda.SelectSingleNode("IdCliente").InnerText;
                     encomendaItem.CodigoObjeto = encomenda.SelectSingleNode("CodigoObjeto").InnerText;
 
-                    foreach(XmlNode status in encomenda.SelectSingleNode("ArrayEncomendaRetorno").ChildNodes)
+                    foreach(XmlNode status in encomenda.SelectSingleNode("ArrayStatusTotal").ChildNodes)
                     {
                         var statusItem = new StatusTotalObterTrackingResponse()
                         {
